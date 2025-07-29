@@ -94,7 +94,7 @@ class Comment(db.Model):
     author: Mapped["User"] = relationship(back_populates="comments")
     post_id: Mapped[int] = mapped_column(Integer, ForeignKey("blog_posts.id"))
     parent_post: Mapped["BlogPost"] = relationship(back_populates="comments")
-    text: Mapped[str] = mapped_column(Text(250), nullable=False)
+    text: Mapped[str] = mapped_column(Text, nullable=False)
 
 with app.app_context():
     db.create_all()
